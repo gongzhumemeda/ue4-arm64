@@ -25,11 +25,12 @@ jobs:
           # This token is required only if you have configured to store the signatures in a remote repository/organization
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
-          path-to-signatures: 'cla.json'
           path-to-document: 'https://gist.github.com/Lynnvon/2605a31c3ee51d2e77ce27ac68c025d8' # e.g. a CLA or a DCO document
           # branch should not be protected
           branch: 'master'
-          #allowlist: 
+          lock-pullrequest-aftermerge: True
+          path-to-signatures: 'signatures/version1/cla.json'
+          allowlist: bot*
 
          # the followings are the optional inputs - If the optional inputs are not given, then default values will be taken
           remote-organization-name: sietium
